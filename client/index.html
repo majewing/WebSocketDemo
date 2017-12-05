@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="node_modules/socket.io-client/dist/socket.io.js"></script>
+<script>
+    let socket = io.connect('http://localhost:8081');
+    socket.on('message', (data) => {
+        alert(JSON.stringify(data));
+        socket.emit('reply', {reply: 'got it' });
+    });
+</script>
+</body>
+</html>
